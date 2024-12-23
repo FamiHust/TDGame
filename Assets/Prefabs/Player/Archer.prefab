@@ -133,7 +133,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   anim: {fileID: 5860715850958960668}
-  coolDown: 2
+  coolDown: 0.8
   range: 17
 --- !u!114 &6029819166176297204
 MonoBehaviour:

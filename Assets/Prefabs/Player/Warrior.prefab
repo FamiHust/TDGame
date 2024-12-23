@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3559885328860149382}
   - component: {fileID: 6069408782713308479}
   - component: {fileID: 7887021850581034247}
-  - component: {fileID: 7137441767250632662}
   - component: {fileID: -7224104307909768846}
   - component: {fileID: 2779124399975355453}
+  - component: {fileID: 8394801508257242390}
+  - component: {fileID: 7280745837503500983}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Untagged
@@ -129,7 +130,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.5, y: 2.90625}
+    oldSize: {x: 2.2222223, y: 2.5833333}
     newSize: {x: 2.03125, y: 2.40625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -137,21 +138,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.0409975, y: 2.0049205}
   m_EdgeRadius: 0
---- !u!114 &7137441767250632662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 591660067245078366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cadd5b495f2a5a49a2ad539c8dcaad3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 20
-  speed: 5
-  freeze: 0
 --- !u!50 &-7224104307909768846
 Rigidbody2D:
   serializedVersion: 5
@@ -201,3 +187,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8394801508257242390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591660067245078366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 218ede88635ce834ba5b1f8e86752db2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  price: 0
+  anim: {fileID: 0}
+--- !u!114 &7280745837503500983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591660067245078366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f2b7b135d88f041bd45b48fef91f12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  speed: 5
+  freeze: 0

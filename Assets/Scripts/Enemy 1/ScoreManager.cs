@@ -34,7 +34,7 @@ public class ScoreManager : MonoBehaviour
 
     public void UpdateScoreDisplay()
     {
-        scoreText.text = "Score: " + ScoreManager.Instance.GetScore(); // Cập nhật văn bản
+        scoreText.text = ScoreManager.Instance.GetScore().ToString(); // Cập nhật văn bản
     }
 
     public int GetScore()

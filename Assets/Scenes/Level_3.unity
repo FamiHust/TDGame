@@ -9322,7 +9322,7 @@ MonoBehaviour:
   coinMask:
     serializedVersion: 2
     m_Bits: 256
-  coins: 10
+  coins: 573
   coinText: {fileID: 1456105302}
   buyButton: {fileID: 274495585}
 --- !u!4 &377935912

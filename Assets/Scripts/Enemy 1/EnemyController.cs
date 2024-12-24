@@ -93,6 +93,7 @@ public class EnemyController : MonoBehaviour
 
         if (health <= 0)
         {
+            GetComponent<BoxCollider2D>().enabled = false;
             anim.SetTrigger("isDie");
             ScoreManager.Instance.AddScore(type.score); // Update score
             StartCoroutine(DestroyCoroutine());

@@ -42,10 +42,9 @@ public class ScoreManager : MonoBehaviour
         return score;
     }
 
-       public void AddScore(int amount)
+    public void AddScore(int amount)
     {
         score += amount;
-        Debug.Log("Score: " + score); // In ra điểm số hiện tại
         UpdateScoreDisplay(); // Cập nhật điểm số trên UI
     }
 }

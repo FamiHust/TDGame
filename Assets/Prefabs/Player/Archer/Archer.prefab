@@ -213,6 +213,7 @@ MonoBehaviour:
   mergeableLayer:
     serializedVersion: 2
     m_Bits: 512
+  anim: {fileID: 5860715850958960668}
 --- !u!50 &7399269243474287100
 Rigidbody2D:
   serializedVersion: 5

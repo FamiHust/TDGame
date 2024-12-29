@@ -234,6 +234,7 @@ MonoBehaviour:
   mergeableLayer:
     serializedVersion: 2
     m_Bits: 512
+  anim: {fileID: 7532642735405790973}
 --- !u!1 &4658022124467869113
 GameObject:
   m_ObjectHideFlags: 0

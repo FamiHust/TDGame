@@ -18458,7 +18458,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &813989152
 RectTransform:
   m_ObjectHideFlags: 0
@@ -45844,7 +45844,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5765384498261851376, guid: 88f8dce5021ef3f46a9a526e161d5782, type: 3}
+  m_Sprite: {fileID: -1063225092136831432, guid: ec3d39530b82ba64bac18c06a8943dbf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -46826,7 +46826,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -110.00001, y: -684}
+  m_AnchoredPosition: {x: -110.00001, y: -408}
   m_SizeDelta: {x: 180, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1438370436
@@ -47919,7 +47919,7 @@ GameObject:
   - component: {fileID: 1507647085}
   - component: {fileID: 1507647087}
   m_Layer: 5
-  m_Name: Warrior
+  m_Name: BombPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47945,7 +47945,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -108.00001, y: -829}
+  m_AnchoredPosition: {x: -108.00001, y: -553}
   m_SizeDelta: {x: 180, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1507647082
@@ -48062,8 +48062,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abee0795786cccc4685b39d1b30d2911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSprite: {fileID: 5765384498261851376, guid: 88f8dce5021ef3f46a9a526e161d5782, type: 3}
-  playerObject: {fileID: 591660067245078366, guid: 4b98d869fc3d78846aeed8a269a32aaf, type: 3}
+  playerSprite: {fileID: -1063225092136831432, guid: ec3d39530b82ba64bac18c06a8943dbf, type: 3}
+  playerObject: {fileID: 591660067245078366, guid: fa79e69f5be699745a1d43647a810d4b, type: 3}
   price: 10
   icon: {fileID: 1334016665}
   priceText: {fileID: 423072690}
@@ -48117,7 +48117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5ff4bb58b6ad584e99a51411ccdf50c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TitleText: Warrior
+  TitleText: Bomb!!!
   DetailsText: One Hit One Kill
 --- !u!1 &1514351718
 GameObject:
@@ -55263,7 +55263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1771121199
 RectTransform:
   m_ObjectHideFlags: 0

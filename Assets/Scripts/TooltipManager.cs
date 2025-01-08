@@ -40,11 +40,17 @@ public class TooltipManager : MonoBehaviour
     }
 
     private void Update()
-    {
-        // Chuyển vị trí tooltip tới vị trí chuột
-        TooltipTransform.position = Input.mousePosition;
+    {   
+        Vector3 mousePosition = Input.mousePosition;
 
-    }
+
+        // Giới hạn vị trí chuột để đảm bảo nó nằm trong giới hạn màn hình
+        mousePosition.x = Mathf.Clamp(mousePosition.x, 0, Screen.width);
+        mousePosition.y = Mathf.Clamp(mousePosition.y, 0, Screen.height);
+
+        // Gán vị trí đã giới hạn cho tooltip
+        TooltipTransform.position = mousePosition;
+    }   
 
     public void Show(string TitleText, string DetailsText)
     {

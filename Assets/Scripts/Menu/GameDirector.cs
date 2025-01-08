@@ -1,6 +1,7 @@
 using DG.Tweening;
-using Unity.VisualScripting;
+// using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections;
 
 public class GameDirector : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class GameDirector : MonoBehaviour
     private float upperTime = 0.0f;
 
     public AudioSource audioSource;
+    public GameObject WarningPanel;
+    private CanvasGroup warningCanvasGroup;
 
 
     void Awake()
@@ -21,6 +24,12 @@ public class GameDirector : MonoBehaviour
     }
     private void Start()
     {
+        WarningPanel.SetActive(false);
+        warningCanvasGroup = WarningPanel.GetComponent<CanvasGroup>();
+        if (warningCanvasGroup == null)
+        {
+            warningCanvasGroup = WarningPanel.AddComponent<CanvasGroup>();
+        }
         if (timer == null)
         {
             timer = FindObjectOfType<Timer>();
@@ -44,16 +53,16 @@ public class GameDirector : MonoBehaviour
         {
             BossFight();
         }
-        else
-            if (upperTime >= Phase1 && !isPhase2)
+        else if (upperTime >= Phase1 && !isPhase2)
         {
             Debug.Log("Phase 2");
+            StartCoroutine(Warning());
 
             audioSource.pitch = 1.2f;
             isPhase2 = true;
             Phase2 = Random.Range(45.0f, 120.0f);
             RandomTime(Phase2);
-            Phase1 += 1.5f * Phase2;
+            Phase1 += 2f * Phase2;
         }
         else if (upperTime >= Phase1 && isPhase2)
         {
@@ -61,5 +70,29 @@ public class GameDirector : MonoBehaviour
             audioSource.pitch = 1.0f;
 
         }
+    }
+
+    private IEnumerator Warning()
+    {
+        WarningPanel.SetActive(true);
+        warningCanvasGroup.alpha = 0f;
+    
+         // Initial fade in
+        warningCanvasGroup.DOFade(1f, 0.5f).SetEase(Ease.InOutSine);
+    
+        // Create flash sequence
+        Sequence flashSequence = DOTween.Sequence();
+        flashSequence.Append(WarningPanel.transform.DOScale(1.1f, 0.3f))
+                .Append(WarningPanel.transform.DOScale(1.0f, 0.3f))
+                .SetLoops(-1);  // Infinite loops
+    
+        yield return new WaitForSeconds(5.0f);
+    
+        // Kill flash sequence
+        flashSequence.Kill();
+    
+        // Final fade out
+        warningCanvasGroup.DOFade(0f, 0.5f).SetEase(Ease.InOutSine)
+        .OnComplete(() => WarningPanel.SetActive(false));
     }
 }

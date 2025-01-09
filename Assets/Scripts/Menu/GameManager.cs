@@ -17,7 +17,19 @@ public class GameManager : MonoBehaviour
     {
         coinText.text = coins.ToString() + "$";
 
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, tileMask);
+        // Get mouse position and validate it
+        Vector3 mousePosition = Input.mousePosition;
+        if (mousePosition.x < 0 || mousePosition.y < 0 ||
+            mousePosition.x > Screen.width || mousePosition.y > Screen.height)
+        {
+            return; // Skip raycast if mouse is outside screen
+        }
+
+        Vector3 worldPoint = Camera.main.ScreenToWorldPoint(mousePosition);
+        // Add z-coordinate explicitly
+        worldPoint.z = 0;
+
+        RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero, Mathf.Infinity, tileMask);
 
         foreach (Transform tile in tiles)
             tile.GetComponent<SpriteRenderer>().enabled = false;
@@ -65,5 +77,19 @@ public class GameManager : MonoBehaviour
     {
         currentPlayer = player;
         currentPlayerSprite = sprite;
+    }
+
+    private void OnDrawGizmos()
+    {
+        // Visualize raycast in Scene view
+        Vector3 mousePos = Input.mousePosition;
+        if (mousePos.x >= 0 && mousePos.y >= 0 &&
+            mousePos.x <= Screen.width && mousePos.y <= Screen.height)
+        {
+            Vector3 worldPoint = Camera.main.ScreenToWorldPoint(mousePos);
+            worldPoint.z = 0;
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(worldPoint, 0.1f);
+        }
     }
 }

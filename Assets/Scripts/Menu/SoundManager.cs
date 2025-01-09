@@ -8,7 +8,8 @@ public enum SoundType
     SELECT,
     ENEMYATTACK,
     VICTORY,
-    GAMEOVER
+    GAMEOVER,
+    EXPLORE
 }
 
 [RequireComponent(typeof(AudioSource))]

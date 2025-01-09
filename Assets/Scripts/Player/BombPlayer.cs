@@ -24,7 +24,7 @@ public class Warrior : MonoBehaviour
         if (other.TryGetComponent<EnemyController>(out EnemyController enemy))
         {
             enemy.Hit(damage, freeze);
-            SoundManager.PlaySound(SoundType.PLAYERATTACK);
+            SoundManager.PlaySound(SoundType.EXPLORE);
             StartCoroutine(DestroyCoroutine());
         }
 

@@ -105,7 +105,7 @@ public class EnemyController : MonoBehaviour
         CancelInvoke("UnFreeze");
         GetComponent<SpriteRenderer>().color = Color.blue;
         speed = type.speed / 2f;
-        Invoke("UnFreeze", 5);
+        Invoke("UnFreeze", 3);
     }
 
     void UnFreeze()

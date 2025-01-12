@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Merge : MonoBehaviour
 {
@@ -55,7 +56,6 @@ public class Merge : MonoBehaviour
                 {
                     SoundManager.PlaySound(SoundType.SELECT);
                     foundOtherObject = true;
-
                     // Tạo GameObject mới tại vị trí của đối tượng được kéo thả
                     Instantiate(prefabToInstantiate, collider.transform.position, Quaternion.identity);
 
@@ -73,6 +73,18 @@ public class Merge : MonoBehaviour
 
             spriteRenderer.sortingOrder = originalSortingOrder; // Khôi phục thứ tự sắp xếp ban đầu
             isDragging = false; // Đặt lại trạng thái kéo
+
         }
     }
+
+    // Phương thức đặt trạng thái idle
+    public void SetIdleState()
+    {
+        Animator animator = GetComponent<Animator>();
+        if (animator != null)
+        {
+            animator.SetTrigger("isIdle"); // Đặt trạng thái về idle
+        }
+    }
+
 }

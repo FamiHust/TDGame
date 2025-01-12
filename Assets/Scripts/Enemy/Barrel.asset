@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c326d12caecd4204393020361b13f9fd, type: 3}
   m_Name: Barrel
   m_EditorClassIdentifier: 
-  health: 20
+  health: 22
   speed: 0.01
   damage: 1
   range: 0.5

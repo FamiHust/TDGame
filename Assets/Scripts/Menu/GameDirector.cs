@@ -20,6 +20,7 @@ public class GameDirector : MonoBehaviour
 
     void Awake()
     {
+        Application.targetFrameRate = 60;
         audioSource = GetComponent<AudioSource>();
     }
     private void Start()

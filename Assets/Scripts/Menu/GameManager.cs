@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0) && !hit.collider.GetComponent<Tile>().hasPlayer)
             {
-                SoundManager.PlaySound(SoundType.SELECT);
+                SoundManager.PlaySound(SoundType.TILE);
                 GameObject playerInstance = Instantiate(currentPlayer, hit.collider.transform.position, Quaternion.identity);
                 hit.collider.GetComponent<Tile>().hasPlayer = true;
                 hit.collider.GetComponent<Tile>().currentPlayer = playerInstance; // Lưu trữ player vào tile

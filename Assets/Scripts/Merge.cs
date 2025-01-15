@@ -54,7 +54,7 @@ public class Merge : MonoBehaviour
             {
                 if (collider.gameObject != currentObject && collider.gameObject.name == currentObject.name)
                 {
-                    SoundManager.PlaySound(SoundType.SELECT);
+                    SoundManager.PlaySound(SoundType.MERGE);
                     foundOtherObject = true;
                     // Tạo GameObject mới tại vị trí của đối tượng được kéo thả
                     Instantiate(prefabToInstantiate, collider.transform.position, Quaternion.identity);

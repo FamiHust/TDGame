@@ -1988,7 +1988,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20.910034, y: 0}
+  m_AnchoredPosition: {x: -20.910156, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &162630881
@@ -2950,7 +2950,7 @@ GameObject:
   - component: {fileID: 277298163}
   - component: {fileID: 277298162}
   m_Layer: 5
-  m_Name: Warrior
+  m_Name: Tower_Archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2992,8 +2992,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5ff4bb58b6ad584e99a51411ccdf50c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TitleText: Warrior
-  DetailsText: One Hit One Kill
+  TitleText: Tower Archer
+  DetailsText: Blablabla
 --- !u!114 &277298163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13231,7 +13231,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 5$
+  m_text: 2$
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bbf71d8a58305463e9d91aeaca31eaa0, type: 2}
   m_sharedMaterial: {fileID: -4171563015097924827, guid: bbf71d8a58305463e9d91aeaca31eaa0, type: 2}
@@ -14607,7 +14607,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 92885073c980349c2a786888bd70f710, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 39ef3ee733c904f08a85268391803a80, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15206,7 +15206,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 2160.9998, y: 548.19995}
+  m_AnchoredPosition: {x: 2183, y: 548.19995}
   m_SizeDelta: {x: 450.5, y: 1006.728}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &721198934
@@ -23084,8 +23084,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.2, y: 0.8}
-  m_SizeDelta: {x: 100, y: 110}
+  m_AnchoredPosition: {x: -3.2, y: 2.9}
+  m_SizeDelta: {x: 90, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &911413320
 MonoBehaviour:
@@ -23107,7 +23107,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5765384498261851376, guid: 88f8dce5021ef3f46a9a526e161d5782, type: 3}
+  m_Sprite: {fileID: 9032203404681445082, guid: 409dcf5f72a9d71499ed8e2a6594e78e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -38640,7 +38640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 53, y: 38.7}
+  m_AnchoredPosition: {x: 62.5, y: 38.7}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1076665880
@@ -38663,7 +38663,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10$
+  m_text: 5$
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bbf71d8a58305463e9d91aeaca31eaa0, type: 2}
   m_sharedMaterial: {fileID: -4171563015097924827, guid: bbf71d8a58305463e9d91aeaca31eaa0, type: 2}
@@ -52922,8 +52922,8 @@ RectTransform:
   m_GameObject: {fileID: 1410840604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.55, y: 1.55, z: 1.55}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1062947790}
   - {fileID: 49783089}
@@ -52931,7 +52931,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 303, y: -8}
+  m_AnchoredPosition: {x: 598, y: 1}
   m_SizeDelta: {x: 257.8112, y: 130.45001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1410840606
@@ -53416,7 +53416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSprite: {fileID: 2960402581040015946, guid: 66932d0706923ba4fb0a972a5724b06c, type: 3}
   playerObject: {fileID: 591660067245078366, guid: e2b46aac318c08a47b352ecb56551c9b, type: 3}
-  price: 5
+  price: 2
   icon: {fileID: 888891857}
   priceText: {fileID: 590199661}
 --- !u!114 &1438370439
@@ -69413,6 +69413,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e75fb199075cb2e479cd206df1fa4e66, type: 3}
   - {fileID: 8300000, guid: e7716f74f1826c04194bc1dd80b6243e, type: 3}
   - {fileID: 8300000, guid: a12b18f3f68619a4582042d22cfcbf04, type: 3}
+  - {fileID: 8300000, guid: a4d5da9dbba2c5241bf842e96e28a2f9, type: 3}
+  - {fileID: 8300000, guid: b1a61f6d716f15645a8456f7e50cba89, type: 3}
+  - {fileID: 8300000, guid: ceb5bc42e3508d346a591ff11f765d45, type: 3}
 --- !u!1 &1913851965
 GameObject:
   m_ObjectHideFlags: 0
@@ -71228,7 +71231,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 53, y: 38.7}
+  m_AnchoredPosition: {x: 60.5, y: 38.7}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2048236029

@@ -9,7 +9,9 @@ public enum SoundType
     ENEMYATTACK,
     VICTORY,
     GAMEOVER,
-    EXPLORE
+    EXPLORE,
+    MERGE,
+    TILE
 }
 
 [RequireComponent(typeof(AudioSource))]

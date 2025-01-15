@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Bullet : MonoBehaviour
 {
@@ -6,11 +7,21 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed = 0.8f;
     public bool freeze;
     public bool isFireBullet;
+    private bool isStopped = false; // Biến trạng thái để kiểm soát chuyển động
+    private Animator anim;
+
+    private void Start() 
+    {
+        anim = GetComponent<Animator>();    
+    }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(0, speed * Time.deltaTime, 0);
+        if (!isStopped)
+        {
+            transform.position += new Vector3(0, speed * Time.deltaTime, 0);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -22,11 +33,13 @@ public class Bullet : MonoBehaviour
             // Chỉ phá hủy nếu không phải đạn fire
             if (!isFireBullet)
             {
+                isStopped = true;
                 SoundManager.PlaySound(SoundType.PLAYERATTACK);
-                Destroy(gameObject);
+                StartCoroutine(DestroyBullet());
             }
             else
             {
+                isStopped = false;
                 SoundManager.PlaySound(SoundType.PLAYERATTACK);
                 Destroy(gameObject, 3f);
             }
@@ -38,4 +51,10 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    private IEnumerator DestroyBullet()
+    {
+        anim.SetTrigger("isDestroy");
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
+    }
 }

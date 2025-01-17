@@ -13,10 +13,8 @@ MonoBehaviour:
   m_Name: TNT
   m_EditorClassIdentifier: 
   health: 32
-  speed: 0.01
+  speed: 0.008
   damage: 3
   range: 0.5
   eatCoolDown: 1
-  sprite: {fileID: 2272326806082863785, guid: f6f454c91f573b24da2662dec618b0dc, type: 3}
-  deathSprite: {fileID: 5075904528681374101, guid: f6f454c91f573b24da2662dec618b0dc, type: 3}
   score: 1

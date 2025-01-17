@@ -48,7 +48,7 @@ public class EnemySpawner : MonoBehaviour
     public Timer timer;
 
     private float coolDownTimer;
-    [SerializeField] private float coolDown = 12.0f;
+    [SerializeField] private float coolDown = 10.0f;
 
     private void Awake()
     {
@@ -83,21 +83,18 @@ public class EnemySpawner : MonoBehaviour
     void UpdateCoolDown()
     {
         CancelInvoke("SpawnEnemy");
-        InvokeRepeating("SpawnEnemy", 15, coolDown / timer.speedManage);
+        InvokeRepeating("SpawnEnemy", 10, coolDown / timer.speedManage);
     }
     void SpawnEnemy()
     {
         int spawnPointIndex = Random.Range(0, spawnPoints.Length);
         GameObject myEnemy = Instantiate(probList[Random.Range(0, probList.Count)], spawnPoints[spawnPointIndex].position, Quaternion.identity);
-
-        // Nếu bạn cần gán loại cho enemy, bạn có thể làm như sau:
-        // myEnemy.GetComponent<EnemyController>().type = ...; // Gán loại nếu cần
     }
 }
 
 [System.Serializable]
 public class EnemyPrefabProb
 {
-    public GameObject prefab; // Prefab enemy
-    public int probability; // Xác suất
+    public GameObject prefab; 
+    public int probability; 
 }

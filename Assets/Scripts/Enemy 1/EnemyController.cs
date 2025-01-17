@@ -27,7 +27,6 @@ public class EnemyController : MonoBehaviour
         range = type.range;
         eatCoolDown = type.eatCoolDown;
 
-        GetComponent<SpriteRenderer>().sprite = type.sprite;
         anim = GetComponent<Animator>();
 
         // Find Timer script if not assigned in the Inspector
@@ -45,11 +44,6 @@ public class EnemyController : MonoBehaviour
         {
             targetPlayer = hit.collider.GetComponent<Player>();
             Eat();
-        }
-
-        if (health == 1)
-        {
-            GetComponent<SpriteRenderer>().sprite = type.deathSprite;
         }
     }
 
@@ -122,6 +116,11 @@ public class EnemyController : MonoBehaviour
             attackSoundCoroutine = StartCoroutine(PlayAttackSound());
             Attack();
         }
+
+        if (other.CompareTag("FinishLine"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -160,7 +159,7 @@ public class EnemyController : MonoBehaviour
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         Color originalColor = spriteRenderer.color;
         Color hitColor = Color.red; // Color to indicate hit
-        float blinkDuration = 0.07f; // Duration for each blink
+        float blinkDuration = 0.05f; // Duration for each blink
         int blinkCount = 1; // Number of blinks
 
         for (int i = 0; i < blinkCount; i++)

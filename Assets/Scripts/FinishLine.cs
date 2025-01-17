@@ -1,14 +1,19 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class FinishLine : MonoBehaviour
 {
     public GameObject gameOverPanel;
     private bool isGameOver = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Health playerHealth;
+
+    // Start is called before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        playerHealth = FindObjectOfType<Health>();
+
         if (isGameOver)
         {
             return;
@@ -17,14 +22,19 @@ public class FinishLine : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") && !isGameOver)
         {
-            isGameOver = true;
-            gameOverPanel.SetActive(true);
-            SoundManager.PlaySound(SoundType.GAMEOVER);
-            Time.timeScale = 0;
+            playerHealth.TakeDamage(1);
+            SoundManager.PlaySound(SoundType.PLAYERHURT);
+
+            // Kiểm tra nếu máu về 0
+            if (playerHealth.currentHealth <= 0)
+            {
+                StartCoroutine(DelayGameOver());
+            }
         }
     }
+
 
     public void ReplayGame(int index)
     {
@@ -44,4 +54,12 @@ public class FinishLine : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
+    private IEnumerator DelayGameOver()
+    {
+        yield return new WaitForSeconds(1f);
+        isGameOver = true;
+        SoundManager.PlaySound(SoundType.GAMEOVER);
+        gameOverPanel.SetActive(true);
+        Time.timeScale = 0;
+    }
 }

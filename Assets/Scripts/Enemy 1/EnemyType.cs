@@ -9,8 +9,6 @@ public class EnemyType : ScriptableObject
     public int damage;
     public float range = 0.5f;
     public float eatCoolDown = 1f;
-    public Sprite sprite;
-    public Sprite deathSprite;
 
     // Thêm thuộc tính điểm số
     public int score; // Điểm số khi tiêu diệt kẻ thù

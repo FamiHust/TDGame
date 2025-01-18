@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 15
-  price: 1
+  price: 5
   anim: {fileID: 6821757089629884280}
 --- !u!61 &3491344344086318757
 BoxCollider2D:

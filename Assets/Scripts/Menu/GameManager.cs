@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI coinText;
     public Button buyButton; // Thêm biến để tham chiếu đến nút mua
 
+    private bool isPlayerBought;
+
     private void Update()
     {
         coinText.text = coins.ToString() + "$";
@@ -45,8 +47,13 @@ public class GameManager : MonoBehaviour
                 GameObject playerInstance = Instantiate(currentPlayer, hit.collider.transform.position, Quaternion.identity);
                 hit.collider.GetComponent<Tile>().hasPlayer = true;
                 hit.collider.GetComponent<Tile>().currentPlayer = playerInstance; // Lưu trữ player vào tile
+
+                // Trừ coin khi đặt player thành công
+                coins -= playerInstance.GetComponent<Player>().price;
+
                 currentPlayer = null;
                 currentPlayerSprite = null;
+                isPlayerBought = false; // Reset trạng thái
             }
         }
 
@@ -75,8 +82,12 @@ public class GameManager : MonoBehaviour
 
     public void BuyPlayer(GameObject player, Sprite sprite)
     {
-        currentPlayer = player;
-        currentPlayerSprite = sprite;
+        if (!isPlayerBought)
+        {
+            currentPlayer = player;
+            currentPlayerSprite = sprite;
+            isPlayerBought = true; // Đánh dấu là đã mua
+        }
     }
 
     private void OnDrawGizmos()

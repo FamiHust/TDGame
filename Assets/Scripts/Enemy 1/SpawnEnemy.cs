@@ -83,7 +83,7 @@ public class EnemySpawner : MonoBehaviour
     void UpdateCoolDown()
     {
         CancelInvoke("SpawnEnemy");
-        InvokeRepeating("SpawnEnemy", 10, coolDown / timer.speedManage);
+        InvokeRepeating("SpawnEnemy", 8, coolDown / timer.speedManage);
     }
     void SpawnEnemy()
     {

@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
-  price: 0
+  price: 5
   anim: {fileID: 2779124399975355453}
 --- !u!114 &7280745837503500983
 MonoBehaviour:

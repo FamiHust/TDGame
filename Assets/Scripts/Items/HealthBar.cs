@@ -23,7 +23,7 @@ public class HealthBar : MonoBehaviour
         float startFill = fillBar.fillAmount;
         float endFill = (float)targetValue / maxValue;
         float elapsed = 0f;
-        float duration = 0.3f; // Thời gian chuyển đổi (nửa giây)
+        float duration = 0.3f;
 
         while (elapsed < duration)
         {

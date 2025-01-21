@@ -4,8 +4,8 @@ using TMPro;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
-    public TextMeshProUGUI scoreText; // Tham chiếu đến TextMeshProUGUI
 
+    public TextMeshProUGUI scoreText; // Reference to the score text
     private int score;
 
     private void Awake()
@@ -23,18 +23,19 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateScoreDisplay(); // Cập nhật điểm số khi bắt đầu
+        UpdateScoreDisplay(); // Update score at start
     }
 
-    private void Update()
+    public void AddScore(int amount)
     {
-        // Cập nhật điểm số liên tục (nếu cần)
+        score += amount;
         UpdateScoreDisplay();
-    }
 
-    public void UpdateScoreDisplay()
-    {
-        scoreText.text = ScoreManager.Instance.GetScore().ToString(); // Cập nhật văn bản
+        // Increase energy based on score
+        if (EnergyManager.Instance != null)
+        {
+            EnergyManager.Instance.AddEnergy(amount);
+        }
     }
 
     public int GetScore()
@@ -42,9 +43,11 @@ public class ScoreManager : MonoBehaviour
         return score;
     }
 
-    public void AddScore(int amount)
+    private void UpdateScoreDisplay()
     {
-        score += amount;
-        UpdateScoreDisplay(); // Cập nhật điểm số trên UI
+        if (scoreText != null)
+        {
+            scoreText.text = score.ToString(); // Update score text
+        }
     }
 }

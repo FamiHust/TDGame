@@ -15,9 +15,6 @@ public class Timer : MonoBehaviour
     private bool isBlinking = false; // Biến kiểm tra trạng thái nhấp nháy
     private float blinkInterval = 0.5f; // Thời gian giữa các lần nhấp nháy
     private float blinkTimer = 0f; // Bộ đếm thời gian cho nhấp nháy
-    // private float scaleSpeed = 0.2f; // Tốc độ phóng to/thu nhỏ
-    // private float maxScale = 1.1f; // Kích thước tối đa
-    // private float minScale = 1.0f; // Kích thước tối thiểu
 
     void Update()
     {
@@ -38,11 +35,9 @@ public class Timer : MonoBehaviour
 
         if (remainingTime <= 11f)
         {
-            isBlinking = true; // Bắt đầu nhấp nháy
-            //ScaleText(); // Gọi phương thức để phóng to/thu nhỏ văn bản
+            isBlinking = true;
         }
 
-        // Nhấp nháy văn bản
         if (isBlinking)
         {
             blinkTimer += Time.deltaTime;
@@ -55,16 +50,10 @@ public class Timer : MonoBehaviour
         }
     }
 
-    // private void ScaleText()
-    // {
-    //     // Sử dụng Mathf.PingPong để tạo hiệu ứng phóng to/thu nhỏ mượt mà
-    //     float scale = Mathf.PingPong(Time.time * scaleSpeed, maxScale - minScale) + minScale;
-    //     timerText.transform.localScale = new Vector3(scale, scale, 1);
-    // }
-
     public void GameWin()
     {
         isGameWin = true;
+        UnlockNewLevel();
         StartCoroutine(GameWinCoroutine());
     }
 
@@ -79,5 +68,15 @@ public class Timer : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    void UnlockNewLevel()
+    {
+        if (SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt("ReachedIndex"))
+        {
+            PlayerPrefs.SetInt("ReachedIndex", SceneManager.GetActiveScene().buildIndex + 1);
+            PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) + 1);
+            PlayerPrefs.Save();
+        }
     }
 }

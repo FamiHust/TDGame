@@ -59,7 +59,7 @@ public class EnemySpawner : MonoBehaviour
     }
     private void Start()
     {
-        InvokeRepeating("SpawnEnemy", 15, coolDown );
+        InvokeRepeating("SpawnEnemy", 10, coolDown );
 
         foreach (EnemyPrefabProb prefabProb in enemyPrefabs)
         {
@@ -83,7 +83,7 @@ public class EnemySpawner : MonoBehaviour
     void UpdateCoolDown()
     {
         CancelInvoke("SpawnEnemy");
-        InvokeRepeating("SpawnEnemy", 8, coolDown / timer.speedManage);
+        InvokeRepeating("SpawnEnemy", 10, coolDown / timer.speedManage);
     }
     void SpawnEnemy()
     {

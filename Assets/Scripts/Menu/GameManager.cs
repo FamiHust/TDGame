@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI; // Thêm namespace này để sử dụng Button
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public LayerMask coinMask;
     public int coins;
     public TextMeshProUGUI coinText;
-    public Button buyButton; // Thêm biến để tham chiếu đến nút mua
+    public Button buyButton;
 
     private bool isPlayerBought;
 
@@ -28,9 +28,9 @@ public class GameManager : MonoBehaviour
         }
 
         Vector3 worldPoint = Camera.main.ScreenToWorldPoint(mousePosition);
-        // Add z-coordinate explicitly
         worldPoint.z = 0;
 
+        // Raycast to check tiles
         RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero, Mathf.Infinity, tileMask);
 
         foreach (Transform tile in tiles)
@@ -43,20 +43,28 @@ public class GameManager : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0) && !hit.collider.GetComponent<Tile>().hasPlayer)
             {
-                SoundManager.PlaySound(SoundType.TILE);
-                GameObject playerInstance = Instantiate(currentPlayer, hit.collider.transform.position, Quaternion.identity);
-                hit.collider.GetComponent<Tile>().hasPlayer = true;
-                hit.collider.GetComponent<Tile>().currentPlayer = playerInstance; // Lưu trữ player vào tile
+                Player playerScript = currentPlayer.GetComponent<Player>();
 
-                // Trừ coin khi đặt player thành công
-                coins -= playerInstance.GetComponent<Player>().price;
+                // Check if the player has enough coins
+                if (playerScript != null && coins >= playerScript.price)
+                {
+                    SoundManager.PlaySound(SoundType.TILE);
+                    GameObject playerInstance = Instantiate(currentPlayer, hit.collider.transform.position, Quaternion.identity);
+                    hit.collider.GetComponent<Tile>().hasPlayer = true;
+                    hit.collider.GetComponent<Tile>().currentPlayer = playerInstance;
 
-                currentPlayer = null;
-                currentPlayerSprite = null;
-                isPlayerBought = false; // Reset trạng thái
+                    // Deduct coins when placing the player
+                    coins -= playerScript.price;
+
+                    // Reset player purchase state
+                    currentPlayer = null;
+                    currentPlayerSprite = null;
+                    isPlayerBought = false;
+                }
             }
         }
 
+        // Raycast to collect coins
         RaycastHit2D coinHit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, coinMask);
 
         if (coinHit.collider)
@@ -69,13 +77,13 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // Kiểm tra xem có player nào bị destroy không
+        // Check if any player is destroyed
         foreach (Transform tile in tiles)
         {
             Tile tileComponent = tile.GetComponent<Tile>();
-            if (tileComponent.hasPlayer && tileComponent.currentPlayer == null) // Nếu không tìm thấy player
+            if (tileComponent.hasPlayer && tileComponent.currentPlayer == null)
             {
-                tileComponent.ResetTile(); // Reset tile
+                tileComponent.ResetTile();
             }
         }
     }
@@ -86,13 +94,12 @@ public class GameManager : MonoBehaviour
         {
             currentPlayer = player;
             currentPlayerSprite = sprite;
-            isPlayerBought = true; // Đánh dấu là đã mua
+            isPlayerBought = true; // Mark as purchased
         }
     }
 
     private void OnDrawGizmos()
     {
-        // Visualize raycast in Scene view
         Vector3 mousePos = Input.mousePosition;
         if (mousePos.x >= 0 && mousePos.y >= 0 &&
             mousePos.x <= Screen.width && mousePos.y <= Screen.height)

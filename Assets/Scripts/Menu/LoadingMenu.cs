@@ -18,11 +18,6 @@ public class LoadingMenu : MonoBehaviour
         StartCoroutine(LoadSceneAsynchronously(nextSceneIndex));
     }
 
-    public void LoadScene(int levelIndex)
-    {
-        SceneManager.LoadScene(levelIndex);
-    }
-
     IEnumerator LoadSceneAsynchronously(int levelIndex)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(levelIndex);

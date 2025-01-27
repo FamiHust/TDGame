@@ -6,8 +6,8 @@ public class BasicShooter : MonoBehaviour
     public GameObject bullet;
     public Transform shootOrigin;
     public LayerMask shootMask;
-    private GameObject target;
     public Animator anim;
+    private GameObject target;
 
     public float coolDown;
     public float range;

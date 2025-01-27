@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class CoinMine : MonoBehaviour
 {
-    public GameObject coinObject; // Prefab của đồng xu
-    public float coolDown; // Thời gian spawn
+    public GameObject coinObject;
+    public float coolDown;
 
     private void Start()
     {
@@ -12,7 +12,6 @@ public class CoinMine : MonoBehaviour
 
     void SpawnCoin()
     {
-        // Tạo đối tượng coin tại vị trí ngẫu nhiên
         GameObject myCoin = Instantiate(
             coinObject,
             new Vector3(
@@ -23,11 +22,10 @@ public class CoinMine : MonoBehaviour
             Quaternion.identity
         );
 
-        // Thiết lập vận tốc rơi
         Rigidbody2D rb = myCoin.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.gravityScale = 0f; // Tăng tốc độ rơi (giá trị có thể tùy chỉnh)
+            rb.gravityScale = 0f;
         }
 
         // Nếu coin có một thuộc tính để dừng tại vị trí `dropToYPos`

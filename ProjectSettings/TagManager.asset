@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - FinishLine
   - Bound
+  - Tower
   layers:
   - Default
   - TransparentFX

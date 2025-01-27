@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cadd5b495f2a5a49a2ad539c8dcaad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 4
+  damage: 3
   speed: 30
   freeze: 0
   isFireBullet: 0

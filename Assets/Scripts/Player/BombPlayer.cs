@@ -5,8 +5,8 @@ public class Warrior : MonoBehaviour
 {
     [SerializeField] private int damage;
     [SerializeField] private float speed = 0.8f;
-    public bool freeze;
     private Animator anim;
+    public bool freeze;
 
     private void Start()
     {

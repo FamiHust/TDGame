@@ -54,7 +54,8 @@ public class Bullet : MonoBehaviour
     private IEnumerator DestroyBullet()
     {
         anim.SetTrigger("isDestroy");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.9f);
         Destroy(gameObject);
     }
+
 }

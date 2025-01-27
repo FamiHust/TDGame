@@ -13,8 +13,10 @@ public class LoadingMenu : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
+
         loadingScreen.SetActive(true);
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1; // Lấy chỉ số cảnh tiếp theo
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
         StartCoroutine(LoadSceneAsynchronously(nextSceneIndex));
     }
 

@@ -6,10 +6,10 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth;
     [HideInInspector] public int currentHealth;
-
+    public int maxHealth;
     public HealthBar healthBar;
+    public TowerBar towerBar;
 
     private void Start()
     {
@@ -25,7 +25,17 @@ public class Health : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         if (healthBar != null)
         {
-            healthBar.UpdateBar(currentHealth, maxHealth); // Cập nhật thanh máu và text
+            healthBar.UpdateBar(currentHealth, maxHealth); 
+        }
+    }
+
+    public void TakeDamageTower(int damage)
+    {
+        currentHealth -= damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        if (towerBar != null)
+        {
+            towerBar.UpdateBar(currentHealth, maxHealth); 
         }
     }
 

@@ -4,13 +4,13 @@ using TMPro;
 
 public class PlayerSlot : MonoBehaviour
 {
+    private GameManager gms;
+
     public Sprite playerSprite;
     public GameObject playerObject;
-    public int price;
     public Image icon;
     public TextMeshProUGUI priceText;
-
-    private GameManager gms;
+    public int price;
 
     private void Start()
     {

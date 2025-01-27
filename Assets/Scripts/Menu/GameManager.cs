@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,9 +10,10 @@ public class GameManager : MonoBehaviour
     public Transform tiles;
     public LayerMask tileMask;
     public LayerMask coinMask;
-    public int coins;
     public TextMeshProUGUI coinText;
     public Button buyButton;
+
+    [SerializeField] private int coins;
 
     private bool isPlayerBought;
 
@@ -24,13 +26,12 @@ public class GameManager : MonoBehaviour
         if (mousePosition.x < 0 || mousePosition.y < 0 ||
             mousePosition.x > Screen.width || mousePosition.y > Screen.height)
         {
-            return; // Skip raycast if mouse is outside screen
+            return;
         }
 
         Vector3 worldPoint = Camera.main.ScreenToWorldPoint(mousePosition);
         worldPoint.z = 0;
 
-        // Raycast to check tiles
         RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero, Mathf.Infinity, tileMask);
 
         foreach (Transform tile in tiles)
@@ -53,10 +54,8 @@ public class GameManager : MonoBehaviour
                     hit.collider.GetComponent<Tile>().hasPlayer = true;
                     hit.collider.GetComponent<Tile>().currentPlayer = playerInstance;
 
-                    // Deduct coins when placing the player
                     coins -= playerScript.price;
 
-                    // Reset player purchase state
                     currentPlayer = null;
                     currentPlayerSprite = null;
                     isPlayerBought = false;
@@ -88,13 +87,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     public void BuyPlayer(GameObject player, Sprite sprite)
     {
-        if (!isPlayerBought)
+        Player playerScript = player.GetComponent<Player>();
+
+        if (playerScript != null && coins >= playerScript.price)
         {
-            currentPlayer = player;
-            currentPlayerSprite = sprite;
-            isPlayerBought = true; // Mark as purchased
+            if (!isPlayerBought)
+            {
+                currentPlayer = player;
+                currentPlayerSprite = sprite;
+                isPlayerBought = true;
+            }
         }
     }
 

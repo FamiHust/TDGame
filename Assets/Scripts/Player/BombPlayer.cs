@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Warrior : MonoBehaviour
+public class BombPlayer : MonoBehaviour
 {
     [SerializeField] private int damage;
     [SerializeField] private float speed = 0.8f;

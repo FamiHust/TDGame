@@ -9,6 +9,7 @@ TagManager:
   - FinishLine
   - Bound
   - Tower
+  - Traps
   layers:
   - Default
   - TransparentFX

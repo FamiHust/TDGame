@@ -14,7 +14,8 @@ public enum SoundType
     TILE,
     BOSS,
     BOSSDIE,
-    WOODDESTROY
+    WOODDESTROY,
+    TRAP
 }
 
 [RequireComponent(typeof(AudioSource))]

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1681558637135394382}
   - component: {fileID: 5462406841971807713}
   - component: {fileID: 2182806888123835680}
-  - component: {fileID: 6976678710290242428}
+  - component: {fileID: 8469545785213938317}
   m_Layer: 7
   m_Name: TNT
   m_TagString: Enemy
@@ -125,13 +125,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b83dcccbab44d749867e38cdef2b729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: {fileID: 11400000, guid: ae2600f518ee4774aa22d383603d0421, type: 2}
   eatCoolDown: 1
+  type: {fileID: 11400000, guid: ae2600f518ee4774aa22d383603d0421, type: 2}
   playerMask:
     serializedVersion: 2
     m_Bits: 640
   targetPlayer: {fileID: 0}
   anim: {fileID: 0}
+  canMove: 1
+  isBoss: 0
   timer: {fileID: 0}
 --- !u!61 &2182806888123835680
 BoxCollider2D:
@@ -179,7 +181,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.625, y: 1.1155128}
   m_EdgeRadius: 0
---- !u!50 &6976678710290242428
+--- !u!50 &8469545785213938317
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0

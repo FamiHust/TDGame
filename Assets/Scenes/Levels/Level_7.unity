@@ -366,7 +366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7515976855934333397, guid: 1fcea38eaa4e8b54c9d5c42af655a53f, type: 3}
       propertyPath: m_SortingOrder
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8764462280357987377, guid: 1fcea38eaa4e8b54c9d5c42af655a53f, type: 3}
       propertyPath: m_Name
@@ -11330,7 +11330,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   coinText: {fileID: 1456105302}
-  coins: 230
+  coins: 15
 --- !u!4 &377935912
 Transform:
   m_ObjectHideFlags: 0
@@ -53031,7 +53031,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 409c8276a030fa14c9a205437728d428, type: 3}
   m_Resource: {fileID: 8300000, guid: 409c8276a030fa14c9a205437728d428, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -53510,18 +53510,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1924021352}
-        m_TargetAssemblyTypeName: SpawnSkills, Assembly-CSharp
-        m_MethodName: SpawnObjectRandomly
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -70323,7 +70311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1801599730
 RectTransform:
   m_ObjectHideFlags: 0
@@ -71870,7 +71858,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 739666dcf8f2d8b4da4d8f10c68d14cf, type: 3}
   - {fileID: 8300000, guid: 1ed28bd33b2a4774f9bea70e8e05ef28, type: 3}
   - {fileID: 8300000, guid: 620f509a2b714614bb6b73f14a67f314, type: 3}
-  - {fileID: 8300000, guid: e75fb199075cb2e479cd206df1fa4e66, type: 3}
+  - {fileID: 8300000, guid: 719102fb2b729f24f81ff414c458788f, type: 3}
   - {fileID: 8300000, guid: e7716f74f1826c04194bc1dd80b6243e, type: 3}
   - {fileID: 8300000, guid: a12b18f3f68619a4582042d22cfcbf04, type: 3}
   - {fileID: 8300000, guid: a4d5da9dbba2c5241bf842e96e28a2f9, type: 3}
@@ -72344,8 +72332,8 @@ MonoBehaviour:
   - {fileID: 1600421661}
   - {fileID: 520158727}
   spawnButton: {fileID: 1270741769}
-  maxSpawnCount: 18
-  spawnCooldown: 0.3
+  maxSpawnCount: 20
+  spawnCooldown: 0.15
 --- !u!4 &1924021353
 Transform:
   m_ObjectHideFlags: 0
@@ -74653,7 +74641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothSpeed: 0.03
-  maxEnergy: 1
+  maxEnergy: 10
   Power: {fileID: 1270741766}
   energyBar: {fileID: 2071789735}
 --- !u!1 &2073048026

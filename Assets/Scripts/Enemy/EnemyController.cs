@@ -31,7 +31,6 @@ public class EnemyController : MonoBehaviour
 
         anim = GetComponent<Animator>();
 
-        // Find Timer script if not assigned in the Inspector
         if (timer == null)
         {
             timer = FindObjectOfType<Timer>();
@@ -69,11 +68,10 @@ public class EnemyController : MonoBehaviour
         if (!targetPlayer && canMove)
         {
             float adjustedSpeed = speed;
-            if (timer != null)
-            {
-                adjustedSpeed *= timer.speedManage;
-            }
+
+            adjustedSpeed *= timer.speedManage;
             transform.position -= new Vector3(0, adjustedSpeed, 0);
+
         }
     }
 
@@ -137,6 +135,11 @@ public class EnemyController : MonoBehaviour
         {
             Destroy(gameObject, 0.2f);
         }
+
+        if (other.CompareTag("Traps"))
+        {
+            Hit(5, false);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -147,20 +150,17 @@ public class EnemyController : MonoBehaviour
             CancelInvoke("ResetEatCoolDown");
             canEat = true;
 
-            if (attackSoundCoroutine != null)
-            {
-                StopCoroutine(attackSoundCoroutine);
-                attackSoundCoroutine = null;
-            }
+            StopCoroutine(attackSoundCoroutine);
+            attackSoundCoroutine = null;
         }
     }
 
     private IEnumerator PlayAttackSound()
     {
-        while (true) // Infinite loop until stopped
+        while (true)
         {
             SoundManager.PlaySound(SoundType.ENEMYATTACK);
-            yield return new WaitForSeconds(0.7f); // Adjust delay as needed
+            yield return new WaitForSeconds(0.7f);
         }
     }
 

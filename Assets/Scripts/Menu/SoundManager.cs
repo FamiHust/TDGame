@@ -13,7 +13,8 @@ public enum SoundType
     MERGE,
     TILE,
     BOSS,
-    BOSSDIE
+    BOSSDIE,
+    WOODDESTROY
 }
 
 [RequireComponent(typeof(AudioSource))]

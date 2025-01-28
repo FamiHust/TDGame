@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public LayerMask tileMask;
     public LayerMask coinMask;
     public TextMeshProUGUI coinText;
-    public Button buyButton;
+    // public Button buyButton;
 
     [SerializeField] private int coins;
 

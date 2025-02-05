@@ -11,7 +11,6 @@ public class Bomb : MonoBehaviour
         Destroy(gameObject, 10);
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.position += new Vector3(0, speed * Time.deltaTime, 0);

@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed = 0.8f;
     public bool freeze;
     public bool isFireBullet;
-    private bool isStopped = false; // Biến trạng thái để kiểm soát chuyển động
+    private bool isStopped = false;
     private Animator anim;
 
     private void Start() 
@@ -15,7 +15,6 @@ public class Bullet : MonoBehaviour
         anim = GetComponent<Animator>();    
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!isStopped)
@@ -30,7 +29,6 @@ public class Bullet : MonoBehaviour
         {
             enemy.Hit(damage, freeze);
 
-            // Chỉ phá hủy nếu không phải đạn fire
             if (!isFireBullet)
             {
                 isStopped = true;

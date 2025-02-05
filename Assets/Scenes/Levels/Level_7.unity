@@ -364,6 +364,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5851743744064531376, guid: 1fcea38eaa4e8b54c9d5c42af655a53f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.95
+      objectReference: {fileID: 0}
     - target: {fileID: 7515976855934333397, guid: 1fcea38eaa4e8b54c9d5c42af655a53f, type: 3}
       propertyPath: m_SortingOrder
       value: 3
@@ -415,7 +419,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 321.41425, y: 0.8000021}
+  m_AnchoredPosition: {x: 343, y: 0.8000021}
   m_SizeDelta: {x: 150, y: 19}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &43747960
@@ -5639,7 +5643,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b7ce8cef00ac44e57a4ea6c6e258daca, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11320,6 +11323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 703537f8a23579442afb012c2d88803c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coins: 15
   currentPlayer: {fileID: 0}
   currentPlayerSprite: {fileID: 0}
   tiles: {fileID: 755576504}
@@ -11330,7 +11334,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   coinText: {fileID: 1456105302}
-  coins: 15
 --- !u!4 &377935912
 Transform:
   m_ObjectHideFlags: 0
@@ -14412,14 +14415,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab432002f214614e866f5b761ca60a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 0}
   spawnPoints:
   - {fileID: 614631690}
   - {fileID: 216937585}
   enemyPrefabs:
-  - prefab: {fileID: 8764462280357987377, guid: 7b054b05160b20844aaf0e1cb05c4a0c, type: 3}
+  - prefab: {fileID: 8764462280357987377, guid: b716abcdab870e8428edfd5466e60118, type: 3}
     probability: 10
-  - prefab: {fileID: 8764462280357987377, guid: 9ce2d3137a2b2cd49a5d2bb3745e95e2, type: 3}
+  - prefab: {fileID: 8764462280357987377, guid: 202eb8cc5341f3c4899071062e11a4fa, type: 3}
     probability: 10
   maxEnemies: 100
   coolDown: 15
@@ -17273,7 +17275,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 54551c15f264e462e932e534cacf0d1d, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22170,7 +22171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -323.41425, y: 0.8000021}
+  m_AnchoredPosition: {x: -341, y: 0.8000021}
   m_SizeDelta: {x: 150, y: 19}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &810299125
@@ -53127,11 +53128,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf53fb7401c1f14ea3e014f746e5680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 162630881}
-  volumeSlider: {fileID: 678719634}
   Phase1: 150
   audioSource: {fileID: 1246042246}
   WarningPanel: {fileID: 1938728537}
+  volumeSlider: {fileID: 678719634}
 --- !u!1 &1263503449
 GameObject:
   m_ObjectHideFlags: 0
@@ -59024,7 +59024,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: d7d2a7452d9ed416a8047928eecabce3, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -74916,7 +74915,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: REWARDS
+  m_text: COMEBACK HOME
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d70f485aa27dc43f79a8fd168f58435c, type: 2}
   m_sharedMaterial: {fileID: 5416806443266638455, guid: d70f485aa27dc43f79a8fd168f58435c, type: 2}

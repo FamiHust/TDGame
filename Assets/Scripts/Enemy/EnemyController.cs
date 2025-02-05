@@ -14,12 +14,12 @@ public class EnemyController : MonoBehaviour
     public Player targetPlayer;
     public Animator anim;
     private Coroutine attackSoundCoroutine;
+    private Coroutine blinkCoroutine;
 
     private bool canEat = true;
     public bool canMove = true;
+    private bool isFrozen = false;
     public bool isBoss;
-
-    public Timer timer;
 
     private void Start()
     {
@@ -30,11 +30,6 @@ public class EnemyController : MonoBehaviour
         eatCoolDown = type.eatCoolDown;
 
         anim = GetComponent<Animator>();
-
-        if (timer == null)
-        {
-            timer = FindObjectOfType<Timer>();
-        }
     }
 
     private void Update()
@@ -50,8 +45,7 @@ public class EnemyController : MonoBehaviour
 
     void Eat()
     {
-        if (!canEat || !targetPlayer)
-            return;
+        if (!canEat || !targetPlayer) return;
         canEat = false;
         Invoke("ResetEatCoolDown", eatCoolDown);
 
@@ -69,21 +63,27 @@ public class EnemyController : MonoBehaviour
         {
             float adjustedSpeed = speed;
 
-            adjustedSpeed *= timer.speedManage;
+            adjustedSpeed *= Timer.Instance.speedManage;
             transform.position -= new Vector3(0, adjustedSpeed, 0);
-
         }
     }
 
     public void Hit(int damage, bool freeze)
     {
         health -= damage;
+        
         if (freeze)
         {
             Freeze();
         }
-
-        StartCoroutine(BlinkEffect());
+        else if (!isFrozen)
+        {
+            if (blinkCoroutine != null)
+            {
+                StopCoroutine(blinkCoroutine);
+            }
+            blinkCoroutine = StartCoroutine(BlinkEffect());
+        }
 
         if (health <= 0)
         {
@@ -115,6 +115,38 @@ public class EnemyController : MonoBehaviour
     {
         GetComponent<SpriteRenderer>().color = Color.white;
         speed = type.speed;
+    }
+
+    private IEnumerator BlinkEffect()
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        Color originalColor = Color.white;
+        Color hitColor = Color.red;
+        float blinkDuration = 0.1f;
+        int blinkCount = 1;
+
+        for (int i = 0; i < blinkCount; i++)
+        {
+            spriteRenderer.color = hitColor;
+            yield return new WaitForSeconds(blinkDuration);
+            spriteRenderer.color = originalColor;
+            yield return new WaitForSeconds(blinkDuration);
+        }
+    }
+
+    private IEnumerator DestroyCoroutine()
+    {
+        yield return new WaitForSeconds(0.9f);
+        Destroy(gameObject);
+    }
+
+    private IEnumerator PlayAttackSound()
+    {
+        while (true)
+        {
+            SoundManager.PlaySound(SoundType.ENEMYATTACK);
+            yield return new WaitForSeconds(0.7f);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -152,38 +184,6 @@ public class EnemyController : MonoBehaviour
 
             StopCoroutine(attackSoundCoroutine);
             attackSoundCoroutine = null;
-        }
-    }
-
-    private IEnumerator PlayAttackSound()
-    {
-        while (true)
-        {
-            SoundManager.PlaySound(SoundType.ENEMYATTACK);
-            yield return new WaitForSeconds(0.7f);
-        }
-    }
-
-    private IEnumerator DestroyCoroutine()
-    {
-        yield return new WaitForSeconds(0.9f);
-        Destroy(gameObject);
-    }
-
-    private IEnumerator BlinkEffect()
-    {
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        Color originalColor = spriteRenderer.color;
-        Color hitColor = Color.red; // Color to indicate hit
-        float blinkDuration = 0.05f; // Duration for each blink
-        int blinkCount = 1; // Number of blinks
-
-        for (int i = 0; i < blinkCount; i++)
-        {
-            spriteRenderer.color = hitColor; // Change to hit color
-            yield return new WaitForSeconds(blinkDuration);
-            spriteRenderer.color = originalColor; // Change back to original color
-            yield return new WaitForSeconds(blinkDuration);
         }
     }
 
@@ -229,6 +229,6 @@ public class EnemyController : MonoBehaviour
     private IEnumerator DelayedGameWin()
     {
         yield return new WaitForSeconds(4.8f);
-        timer.GameWin();
+        Timer.Instance.GameWin();
     }
 }

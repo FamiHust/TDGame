@@ -4,14 +4,22 @@ using UnityEngine.UI;
 
 public class TooltipManager : MonoBehaviour
 {
-    public Canvas parentCanvas; // Không cần sử dụng nếu camera Overlay
+    public static TooltipManager Instance { get; private set;}
+
+    public Canvas parentCanvas; 
     public Transform TooltipTransform;
     public TextMeshProUGUI Title, Details;
-    public static TooltipManager Instance;
 
-    private void Start()
+    private void Awake()
     {
-        Instance = this;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
     private void Update()

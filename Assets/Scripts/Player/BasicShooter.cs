@@ -12,7 +12,7 @@ public class BasicShooter : MonoBehaviour
     public float coolDown;
     public float range;
     private bool canShoot;
-    private bool isAttack; // Trạng thái tấn công
+    private bool isAttack; 
 
     private void Start()
     {
@@ -22,20 +22,18 @@ public class BasicShooter : MonoBehaviour
 
     private void Update()
     {
-        // Kiểm tra xem có mục tiêu trong tầm hay không
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, range, shootMask);
 
         if (hit.collider)
         {
             target = hit.collider.gameObject;
-            Shoot(); // Tấn công nếu có mục tiêu
+            Shoot(); 
         }
         else
         {
-            isAttack = false; // Không có mục tiêu => không tấn công
+            isAttack = false; 
         }
 
-        // Cập nhật trạng thái tấn công trong Animator
         anim.SetBool("isAttack", isAttack);
     }
 
@@ -52,13 +50,8 @@ public class BasicShooter : MonoBehaviour
         canShoot = false;
         Invoke("ResetCoolDown", coolDown);
 
-        // Spawn bullet
         GameObject myArrow = Instantiate(bullet, shootOrigin.position, Quaternion.identity);
 
-        // Nếu viên đạn được tạo ra, đặt trạng thái tấn công là true
-        if (myArrow != null)
-        {
-            isAttack = true;
-        }
+        isAttack = true;
     }
 }

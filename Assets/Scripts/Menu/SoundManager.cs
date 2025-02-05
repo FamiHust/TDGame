@@ -24,32 +24,32 @@ public class SoundManager : MonoBehaviour
     private static SoundManager instance;
 
     [SerializeField] private AudioClip[] soundList;
-
+    [SerializeField] private Slider volumeSlider; 
     private AudioSource audioSource;
-
-    [SerializeField] private Slider volumeSlider; // Thêm Slider để điều chỉnh âm lượng
 
     private void Awake()
     {
-        instance = this;
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
     }
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
 
-        // Nếu Slider được gán, đặt giá trị mặc định và lắng nghe sự thay đổi
-        if (volumeSlider != null)
-        {
-            volumeSlider.value = audioSource.volume; // Gán giá trị mặc định của slider
-            volumeSlider.onValueChanged.AddListener(AdjustVolume); // Lắng nghe sự thay đổi
-        }
+        volumeSlider.value = audioSource.volume;
+        volumeSlider.onValueChanged.AddListener(AdjustVolume); 
     }
 
-    // Phương thức để điều chỉnh âm lượng
     private void AdjustVolume(float volume)
     {
-        audioSource.volume = volume; // Gán giá trị Slider vào volume
+        audioSource.volume = volume; 
     }
 
     public static void PlaySound(SoundType sound, float volume = 1f)

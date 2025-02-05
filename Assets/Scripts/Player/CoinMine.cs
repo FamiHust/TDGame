@@ -28,7 +28,6 @@ public class CoinMine : MonoBehaviour
             rb.gravityScale = 0f;
         }
 
-        // Nếu coin có một thuộc tính để dừng tại vị trí `dropToYPos`
         Coin coin = myCoin.GetComponent<Coin>();
         if (coin != null)
         {

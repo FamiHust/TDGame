@@ -5,13 +5,12 @@ using System.Collections;
 public class Tower : MonoBehaviour
 {
     public GameObject gameOverPanel;
-    private Health playerHealth;
+    // private Health playerHealth;
     private bool isGameOver = false;
 
-    // Start is called before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerHealth = FindObjectOfType<Health>();
+        // playerHealth = FindObjectOfType<Health>();
 
         if (isGameOver)
         {
@@ -23,11 +22,11 @@ public class Tower : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy") && !isGameOver)
         {
-            playerHealth.TakeDamageTower(1);
+            Health.Instance.TakeDamageTower(1);
             SoundManager.PlaySound(SoundType.PLAYERHURT);
 
             // Kiểm tra nếu máu về 0
-            if (playerHealth.currentHealth <= 0)
+            if (Health.Instance.currentHealth <= 0)
             {
                 StartCoroutine(DelayGameOver());
             }

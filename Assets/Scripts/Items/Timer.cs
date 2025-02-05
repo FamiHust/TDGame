@@ -5,6 +5,8 @@ using System.Collections;
 
 public class Timer : MonoBehaviour
 {
+    public static Timer Instance { get; private set;}
+
     [SerializeField] TextMeshProUGUI timerText;
     public float remainingTime;
     public float speedManage = 1.0f;
@@ -12,9 +14,21 @@ public class Timer : MonoBehaviour
     private bool isGameWin = false;
     public GameObject winPanel;
 
-    private bool isBlinking = false; // Biến kiểm tra trạng thái nhấp nháy
-    private float blinkInterval = 0.5f; // Thời gian giữa các lần nhấp nháy
-    private float blinkTimer = 0f; // Bộ đếm thời gian cho nhấp nháy
+    private bool isBlinking = false; 
+    private float blinkInterval = 0.5f; 
+    private float blinkTimer = 0f;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     void Update()
     {
@@ -44,7 +58,7 @@ public class Timer : MonoBehaviour
             if (blinkTimer >= blinkInterval)
             {
                 timerText.color = (timerText.color == Color.red) ? Color.white : Color.red;
-                blinkTimer = 0f; // Đặt lại bộ đếm thời gian
+                blinkTimer = 0f;
             }
         }
     }

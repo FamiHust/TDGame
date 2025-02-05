@@ -136,7 +136,7 @@ MonoBehaviour:
     m_Bits: 128
   anim: {fileID: 5860715850958960668}
   coolDown: 0.8
-  range: 17
+  range: 20
 --- !u!114 &6029819166176297204
 MonoBehaviour:
   m_ObjectHideFlags: 0

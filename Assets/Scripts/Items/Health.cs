@@ -6,6 +6,20 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    public static Health Instance { get; private set;}
+
+    private void Awake() 
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+    
     [HideInInspector] public int currentHealth;
     public int maxHealth;
     public HealthBar healthBar;

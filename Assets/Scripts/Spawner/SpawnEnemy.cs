@@ -5,8 +5,6 @@ using System.Collections.Generic;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public Timer timer;
-
     public Transform[] spawnPoints;
     public EnemyPrefabProb[] enemyPrefabs;
     private List<GameObject> probList = new List<GameObject>();
@@ -16,13 +14,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int maxEnemies = 10;
     [SerializeField] private float coolDown = 10.0f;
 
-    private void Awake()
-    {
-        if (timer == null)
-        {
-            timer = FindObjectOfType<Timer>();
-        }
-    }
     private void Start()
     {
         InvokeRepeating("SpawnEnemy", 10, coolDown);
@@ -33,23 +24,23 @@ public class EnemySpawner : MonoBehaviour
                 probList.Add(prefabProb.prefab);
         }
 
-        coolDownTimer = timer.speedManage;
+        coolDownTimer = Timer.Instance.speedManage;
     }
 
     void Update()
     {
-        if (coolDownTimer != timer.speedManage)
+        if (coolDownTimer != Timer.Instance.speedManage)
         {
             Debug.Log("");
             UpdateCoolDown();
-            coolDownTimer = timer.speedManage;
+            coolDownTimer = Timer.Instance.speedManage;
         }
     }
 
     void UpdateCoolDown()
     {
         CancelInvoke("SpawnEnemy");
-        InvokeRepeating("SpawnEnemy", 10, coolDown / timer.speedManage);
+        InvokeRepeating("SpawnEnemy", 10, coolDown / Timer.Instance.speedManage);
     }
 
     void SpawnEnemy()

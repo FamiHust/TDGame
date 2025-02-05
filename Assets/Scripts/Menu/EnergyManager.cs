@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class EnergyManager : MonoBehaviour
 {
+    public static EnergyManager Instance { get; private set;}
+
     [SerializeField] private float smoothSpeed = 0.1f;
     [SerializeField] private int maxEnergy = 100;
     private int currentEnergy;
@@ -10,7 +12,6 @@ public class EnergyManager : MonoBehaviour
 
     public GameObject Power;
     public Slider energyBar;
-    public static EnergyManager Instance;
 
     private void Awake()
     {

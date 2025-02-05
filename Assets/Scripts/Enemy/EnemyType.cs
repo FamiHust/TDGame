@@ -10,6 +10,5 @@ public class EnemyType : ScriptableObject
     public float range = 0.5f;
     public float eatCoolDown = 1f;
 
-    // Thêm thuộc tính điểm số
-    public int score; // Điểm số khi tiêu diệt kẻ thù
+    public int score; 
 }

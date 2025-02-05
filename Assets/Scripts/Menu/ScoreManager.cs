@@ -3,7 +3,7 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager Instance;
+    public static ScoreManager Instance { get; private set;}
     public TextMeshProUGUI scoreText;
     private int score;
 
@@ -22,7 +22,7 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateScoreDisplay(); // Update score at start
+        UpdateScoreDisplay(); 
     }
 
     public void AddScore(int amount)
@@ -30,7 +30,6 @@ public class ScoreManager : MonoBehaviour
         score += amount;
         UpdateScoreDisplay();
 
-        // Increase energy based on score
         if (EnergyManager.Instance != null)
         {
             EnergyManager.Instance.AddEnergy(amount);
@@ -46,7 +45,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (scoreText != null)
         {
-            scoreText.text = score.ToString(); // Update score text
+            scoreText.text = score.ToString(); 
         }
     }
 }

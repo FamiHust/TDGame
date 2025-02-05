@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218ede88635ce834ba5b1f8e86752db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 7
+  health: 17
   price: 2
   anim: {fileID: 7532642735405790973}
 --- !u!114 &2478630155396333898

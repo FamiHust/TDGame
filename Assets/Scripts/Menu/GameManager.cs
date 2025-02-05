@@ -5,23 +5,34 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set;}
+
+    [SerializeField] private int coins;
+    private bool isPlayerBought;
+
     public GameObject currentPlayer;
     public Sprite currentPlayerSprite;
     public Transform tiles;
     public LayerMask tileMask;
     public LayerMask coinMask;
     public TextMeshProUGUI coinText;
-    // public Button buyButton;
 
-    [SerializeField] private int coins;
-
-    private bool isPlayerBought;
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     private void Update()
     {
         coinText.text = coins.ToString() + "$";
 
-        // Get mouse position and validate it
         Vector3 mousePosition = Input.mousePosition;
         if (mousePosition.x < 0 || mousePosition.y < 0 ||
             mousePosition.x > Screen.width || mousePosition.y > Screen.height)
@@ -46,7 +57,6 @@ public class GameManager : MonoBehaviour
             {
                 Player playerScript = currentPlayer.GetComponent<Player>();
 
-                // Check if the player has enough coins
                 if (playerScript != null && coins >= playerScript.price)
                 {
                     SoundManager.PlaySound(SoundType.TILE);
@@ -63,7 +73,6 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // Raycast to collect coins
         RaycastHit2D coinHit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, coinMask);
 
         if (coinHit.collider)
@@ -76,7 +85,6 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // Check if any player is destroyed
         foreach (Transform tile in tiles)
         {
             Tile tileComponent = tile.GetComponent<Tile>();

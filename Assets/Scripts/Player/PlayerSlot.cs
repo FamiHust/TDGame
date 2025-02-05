@@ -4,8 +4,6 @@ using TMPro;
 
 public class PlayerSlot : MonoBehaviour
 {
-    private GameManager gms;
-
     public Sprite playerSprite;
     public GameObject playerObject;
     public Image icon;
@@ -14,8 +12,7 @@ public class PlayerSlot : MonoBehaviour
 
     private void Start()
     {
-        gms = GameObject.Find("GameManager").GetComponent<GameManager>();
-        GetComponent<Button>().onClick.AddListener(() => gms.BuyPlayer(playerObject, playerSprite));
+        GetComponent<Button>().onClick.AddListener(() => GameManager.Instance.BuyPlayer(playerObject, playerSprite));
     }
 
     private void OnValidate()

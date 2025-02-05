@@ -5,14 +5,10 @@ using System.Collections;
 public class FinishLine : MonoBehaviour
 {
     public GameObject gameOverPanel;
-    private Health playerHealth;
     private bool isGameOver = false;
 
-    // Start is called before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerHealth = FindObjectOfType<Health>();
-
         if (isGameOver)
         {
             return;
@@ -23,11 +19,10 @@ public class FinishLine : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy") && !isGameOver)
         {
-            playerHealth.TakeDamage(1);
+            Health.Instance.TakeDamage(1);
             SoundManager.PlaySound(SoundType.PLAYERHURT);
 
-            // Kiểm tra nếu máu về 0
-            if (playerHealth.currentHealth <= 0)
+            if (Health.Instance.currentHealth <= 0)
             {
                 StartCoroutine(DelayGameOver());
             }

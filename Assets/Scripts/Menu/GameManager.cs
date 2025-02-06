@@ -80,10 +80,14 @@ public class GameManager : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 SoundManager.PlaySound(SoundType.SELECT);
+                Coin.Instance.AnimCoin();
                 coins += 1;
-                Destroy(coinHit.collider.gameObject);
+
+                coinHit.collider.enabled = false;
+                Destroy(coinHit.collider.gameObject, 1f);
             }
         }
+
 
         foreach (Transform tile in tiles)
         {

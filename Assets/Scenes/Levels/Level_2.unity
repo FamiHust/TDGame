@@ -2254,7 +2254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab432002f214614e866f5b761ca60a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 0}
   spawnPoints:
   - {fileID: 556056107}
   - {fileID: 1496350867}
@@ -10842,6 +10841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 703537f8a23579442afb012c2d88803c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coins: 10
   currentPlayer: {fileID: 0}
   currentPlayerSprite: {fileID: 0}
   tiles: {fileID: 755576504}
@@ -10852,7 +10852,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   coinText: {fileID: 1456105302}
-  coins: 10
 --- !u!4 &377935912
 Transform:
   m_ObjectHideFlags: 0
@@ -54369,11 +54368,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf53fb7401c1f14ea3e014f746e5680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 0}
-  volumeSlider: {fileID: 876861165}
   Phase1: 90
   audioSource: {fileID: 1246042246}
   WarningPanel: {fileID: 1001536399}
+  volumeSlider: {fileID: 876861165}
 --- !u!1 &1248631628
 GameObject:
   m_ObjectHideFlags: 0
@@ -75272,6 +75270,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ceb5bc42e3508d346a591ff11f765d45, type: 3}
   - {fileID: 8300000, guid: ceb5bc42e3508d346a591ff11f765d45, type: 3}
   - {fileID: 8300000, guid: b3f0645838a288b418dcaf4a58a5e11b, type: 3}
+  - {fileID: 8300000, guid: 6ae59c3f71edbbc44b4e65140e9bf72a, type: 3}
+  - {fileID: 8300000, guid: e306e43f0a8bea5429d176846843934d, type: 3}
   volumeSlider: {fileID: 526264412}
 --- !u!1 &1913851965
 GameObject:

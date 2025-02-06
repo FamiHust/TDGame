@@ -97,6 +97,7 @@ public class EnemyController : MonoBehaviour
             }
             else
             {
+                SoundManager.PlaySound(SoundType.ENEMYDIE);
                 ScoreManager.Instance.AddScore(type.score);
                 StartCoroutine(DestroyCoroutine());
             }
@@ -122,7 +123,7 @@ public class EnemyController : MonoBehaviour
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         Color originalColor = Color.white;
         Color hitColor = Color.red;
-        float blinkDuration = 0.1f;
+        float blinkDuration = 0.07f;
         int blinkCount = 1;
 
         for (int i = 0; i < blinkCount; i++)

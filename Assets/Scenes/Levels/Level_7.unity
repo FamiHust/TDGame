@@ -71866,6 +71866,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f415d0e338d1f4949ab7984c8c476154, type: 3}
   - {fileID: 8300000, guid: 84436ba8bbe02834fa9f9468421a7d13, type: 3}
   - {fileID: 8300000, guid: b3f0645838a288b418dcaf4a58a5e11b, type: 3}
+  - {fileID: 8300000, guid: 6ae59c3f71edbbc44b4e65140e9bf72a, type: 3}
+  - {fileID: 8300000, guid: e306e43f0a8bea5429d176846843934d, type: 3}
   volumeSlider: {fileID: 385979408}
 --- !u!1 &1896280998
 GameObject:

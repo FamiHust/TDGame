@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 6029819166176297204}
   - component: {fileID: 3491344344086318757}
   - component: {fileID: 7399269243474287100}
+  - component: {fileID: -2718963755753017149}
   m_Layer: 9
   m_Name: Tower_Warrior_1
   m_TagString: Player
@@ -260,6 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   price: 5
+  sell: 1
   anim: {fileID: 5860715850958960668}
 --- !u!61 &3491344344086318757
 BoxCollider2D:
@@ -334,6 +336,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-2718963755753017149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591660067245078366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b5afa16a1165b45bfe378df56ae80f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabToInstantiate: {fileID: 0}
+  mergeableLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &7162982376568516532
 GameObject:
   m_ObjectHideFlags: 0

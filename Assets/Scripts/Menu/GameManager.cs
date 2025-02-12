@@ -5,9 +5,9 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance { get; private set;}
+    public static GameManager Instance;
 
-    [SerializeField] private int coins;
+    public int coins;
     private bool isPlayerBought;
 
     public GameObject currentPlayer;

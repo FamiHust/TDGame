@@ -198,19 +198,6 @@ public class EnemyController : MonoBehaviour
         anim.SetBool("isAttacking", false);
     }
 
-    private void GameWin()
-    {
-        EnemyController[] allEnemies = FindObjectsOfType<EnemyController>();
-
-        foreach (EnemyController enemy in allEnemies)
-        {
-            enemy.TriggerDeathAnimation();
-        }
-
-        StopAllSpawners();
-        StartCoroutine(DelayedGameWin());
-    }
-
     private void StopAllSpawners()
     {
         EnemySpawner[] spawners = FindObjectsOfType<EnemySpawner>();
@@ -231,5 +218,18 @@ public class EnemyController : MonoBehaviour
     {
         yield return new WaitForSeconds(4.8f);
         Timer.Instance.GameWin();
+    }
+
+    private void GameWin()
+    {
+        EnemyController[] allEnemies = FindObjectsOfType<EnemyController>();
+
+        foreach (EnemyController enemy in allEnemies)
+        {
+            enemy.TriggerDeathAnimation();
+        }
+
+        StopAllSpawners();
+        StartCoroutine(DelayedGameWin());
     }
 }

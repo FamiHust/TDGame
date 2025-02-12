@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
 {
     public int health;
     public int price;
+    public int sell;
     public Animator anim;
 
     private void Awake()

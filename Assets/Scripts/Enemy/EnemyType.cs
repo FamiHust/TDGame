@@ -10,5 +10,5 @@ public class EnemyType : ScriptableObject
     public float range = 0.5f;
     public float eatCoolDown = 1f;
 
-    public int score; 
+    public int score;
 }

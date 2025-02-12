@@ -128,7 +128,7 @@ BoxCollider2D:
   m_Offset: {x: 0.00873971, y: -0.2642762}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0.77500004, z: 0, w: 1.275}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.3576998}
     oldSize: {x: 3.2, y: 6.4}
     newSize: {x: 2.78125, y: 4.59375}
     adaptiveTilingThreshold: 0.5
@@ -179,6 +179,7 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 0
   healthBar: {fileID: 0}
+  towerBar: {fileID: 0}
 --- !u!114 &3659204387502352183
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,7 +17,6 @@ public class TrashBin : MonoBehaviour
     public void deleteObject()
     {
         SoundManager.PlaySound(SoundType.TILE);
-         SoundManager.PlaySound(SoundType.TILE);
 
         Player playerScript = player.GetComponent<Player>();
         if (playerScript != null)
